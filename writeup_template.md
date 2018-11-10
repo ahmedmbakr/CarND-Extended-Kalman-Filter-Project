@@ -86,6 +86,11 @@ The main function of the algorithm can be found in function `ProcessMeasurement`
 After receiving the first measurement, the algorithm computes the time difference between the last reading and the current reading.
 It updated the `F_`, and `Q_` , predicts the new states, and finally it updates the `x_`, and `P_` matrices.
 
+I wrote a function `isReasonableNewX` that checks the value of the new state before updating the current state `x_` with this new state.
+The checks are done on x, y values so that the difference between the old_x, and the new_x has to be less than 0.3, and the same for the difference between new_y, old_y.
+This is a recovery mechanism to detect any false readings, and to help my vehicle to be always on the track.
+This function is used when updating both laser, and radar measurement, and initialy, it neglect the first four readings measurements.
+
 #### 4. Your Kalman Filter can handle radar and lidar measurements.
 
 As shown in function `ProcessMeasurement` in file `fusionEKF.cpp`, the predict function is called in either types of packages.
