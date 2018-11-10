@@ -52,6 +52,12 @@ public:
    */
   void Predict();
 
+  /*
+   * This function tests the new value of the x vector that contains the [x, y, velocity_x, velocity_y]
+   * if it is applicable to update the current x state with
+   */
+  inline bool isReasonableNewX(const Eigen::VectorXd & matrix);
+
   /**
    * Updates the state by using standard Kalman Filter equations
    * @param z The measurement at k+1
