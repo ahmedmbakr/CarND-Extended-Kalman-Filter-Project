@@ -55,15 +55,15 @@ bool KalmanFilter::isReasonableNewX(const VectorXd & newX)
 		number_of_readings++;
 		return true;
 	}
-	const double new_x_val = newX[0];
-	const double new_y_val = newX[1];
-	const double new_xvel_val = newX[2];
-	const double new_yvel_val = newX[3];
+	const double new_x_val = newX(0);
+	const double new_y_val = newX(1);
+	const double new_xvel_val = newX(2);
+	const double new_yvel_val = newX(3);
 
-	const double curr_x_val = x_[0];
-	const double curr_y_val = x_[1];
-	const double curr_xvel_val = x_[2];
-	const double curr_yvel_val = x_[3];
+	const double curr_x_val = x_(0);
+	const double curr_y_val = x_(1);
+	const double curr_xvel_val = x_(2);
+	const double curr_yvel_val = x_(3);
 
 	if (abs(new_x_val - curr_x_val) > 0.3)return false;
 	if (abs(new_y_val - curr_y_val) > 0.3)return false;
