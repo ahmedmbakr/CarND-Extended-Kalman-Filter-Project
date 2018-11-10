@@ -5,7 +5,7 @@
 class KalmanFilter {
 public:
 
-  // state vector
+  // state vector of 4 elements (x, y, vx, vy)
   Eigen::VectorXd x_;
 
   // state covariance matrix
